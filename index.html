@@ -1,0 +1,226 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Documento sin título</title>
+<style type="text/css">
+<!--
+body {
+	font: 100%/1.4 Verdana, Arial, Helvetica, sans-serif;
+	margin: 0;
+	padding: 0;
+	color: #000;
+	background-image: url();
+	background-repeat: no-repeat;
+	background-color: #3C5E7C;
+}
+
+/* ~~ Selectores de elemento/etiqueta ~~ */
+ul, ol, dl { /* Debido a las diferencias existentes entre los navegadores, es recomendable no añadir relleno ni márgenes en las listas. Para lograr coherencia, puede especificar las cantidades deseadas aquí o en los elementos de lista (LI, DT, DD) que contienen. Recuerde que lo que haga aquí se aplicará en cascada en la lista .nav, a no ser que escriba un selector más específico. */
+	padding: 0;
+	margin: 0;
+}
+h1, h2, h3, h4, h5, h6, p {
+	margin-top: 0;	 /* la eliminación del margen superior resuelve un problema que origina que los márgenes escapen de la etiqueta div contenedora. El margen inferior restante lo mantendrá separado de los elementos de que le sigan. */
+	padding-right: 15px;
+	padding-left: 15px; /* la adición de relleno a los lados del elemento dentro de las divs, en lugar de en las divs propiamente dichas, elimina todas las matemáticas de modelo de cuadro. Una div anidada con relleno lateral también puede usarse como método alternativo. */
+	color: #000;
+}
+a img { /* este selector elimina el borde azul predeterminado que se muestra en algunos navegadores alrededor de una imagen cuando está rodeada por un vínculo */
+	border: none;
+}
+
+/* ~~ La aplicación de estilo a los vínculos del sitio debe permanecer en este orden (incluido el grupo de selectores que crea el efecto hover -paso por encima-). ~~ */
+a:link {
+	color:#414958;
+	text-decoration: underline; /* a no ser que aplique estilos a los vínculos para que tengan un aspecto muy exclusivo, es recomendable proporcionar subrayados para facilitar una identificación visual rápida */
+}
+a:visited {
+	color: #4E5869;
+	text-decoration: underline;
+}
+a:hover, a:active, a:focus { /* este grupo de selectores proporcionará a un usuario que navegue mediante el teclado la misma experiencia de hover (paso por encima) que experimenta un usuario que emplea un ratón. */
+	text-decoration: none;
+	color: #000000;
+}
+
+/* ~~ este contenedor rodea a todas las demás divs, lo que les asigna su anchura basada en porcentaje ~~ */
+.container {
+	width: 100%;
+	max-width: 1260px;/* puede que sea conveniente una anchura máxima (max-width) para evitar que este diseño sea demasiado ancho en un monitor grande. Esto mantiene una longitud de línea más legible. IE6 no respeta esta declaración. */
+	min-width: 780px;/* puede que sea conveniente una anchura mínima (min-width) para evitar que este diseño sea demasiado estrecho. Esto permite que la longitud de línea sea más legible en las columnas laterales. IE6 no respeta esta declaración. */
+	background-color: #FFF;
+	margin: 0 auto; /* el valor automático de los lados, unido a la anchura, centra el diseño. No es necesario si establece la anchura de .container en el 100%. */
+	color: #930;
+}
+
+/* ~~ no se asigna una anchura al encabezado. Se extenderá por toda la anchura del diseño. Contiene un marcador de posición de imagen que debe sustituirse por su propio logotipo vinculado ~~ */
+.header {
+	background-color: #FFFFFF;
+}
+
+/* ~~ Estas son las columnas para el diseño. ~~ 
+
+1) El relleno sólo se sitúa en la parte superior y/o inferior de las divs. Los elementos situados dentro de estas divs tienen relleno a los lados. Esto le ahorra las "matemáticas de modelo de cuadro". Recuerde que si añade relleno o borde lateral a la div propiamente dicha, éste se añadirá a la anchura que defina para crear la anchura *total*. También puede optar por eliminar el relleno del elemento en la div y colocar una segunda div dentro de ésta sin anchura y el relleno necesario para el diseño deseado.
+
+2) No se asigna margen a las columnas, ya que todas ellas son flotantes. Si es preciso añadir un margen, evite colocarlo en el lado hacia el que se produce la flotación (por ejemplo: un margen derecho en una div configurada para flotar hacia la derecha). En muchas ocasiones, puede usarse relleno como alternativa. En el caso de divs para las que deba incumplirse esta regla, deberá añadir una declaración "display:inline" a la regla de la div para evitar un error que provoca que algunas versiones de Internet Explorer dupliquen el margen.
+
+3) Dado que las clases se pueden usar varias veces en un documento (y que también se pueden aplicar varias clases a un elemento), se ha asignado a las columnas nombres de clases en lugar de ID. Por ejemplo, dos divs de barra lateral podrían apilarse si fuera necesario. Si lo prefiere, éstas pueden cambiarse a ID fácilmente, siempre y cuando las utilice una sola vez por documento.
+
+4) Si prefiere que la navegación esté a la derecha en lugar de a la izquierda, simplemente haga que estas columnas floten en dirección opuesta (todas a la derecha en lugar de todas a la izquierda) y éstas se representarán en orden inverso. No es necesario mover las divs por el código fuente HTML.
+
+*/
+.sidebar1 {
+	float: left;
+	width: 20%;
+	background-color: #F0F0F0;
+	padding-bottom: 10px;
+}
+.content {
+	padding: 10px 0;
+	width: 60%;
+	float: left;
+	font-family: Verdana, Geneva, sans-serif;
+}
+.sidebar2 {
+	float: left;
+	width: 20%;
+	background-color: #93A5C4;
+	padding: 10px 0;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ~~ Este selector agrupado da espacio a las listas del área de .content ~~ */
+.content ul, .content ol { 
+	padding: 0 15px 15px 40px; /* este relleno reproduce en espejo el relleno derecho de la regla de encabezados y de párrafo incluida más arriba. El relleno se ha colocado en la parte inferior para que el espacio existente entre otros elementos de la lista y a la izquierda cree la sangría. Estos pueden ajustarse como se desee. */
+}
+
+/* ~~ Los estilos de lista de navegación (pueden eliminarse si opta por usar un menú desplegable predefinido como el de Spry) ~~ */
+ul.nav {
+	list-style: none; /* esto elimina el marcador de lista */
+	border-top: 1px solid #666; /* esto crea el borde superior de los vínculos (los demás se sitúan usando un borde inferior en el LI) */
+	margin-bottom: 15px; /* esto crea el espacio entre la navegación en el contenido situado debajo */
+	color: #933;
+}
+ul.nav li {
+	border-bottom: 1px solid #666; /* esto crea la separación de los botones */
+}
+ul.nav a, ul.nav a:visited { /* al agrupar estos selectores, se asegurará de que los vínculos mantengan el aspecto de botón incluso después de haber sido visitados */
+	padding: 5px 5px 5px 15px;
+	display: block; /* esto asigna propiedades de bloque al vínculo, lo que provoca que llene todo el LI que lo contiene. Esto provoca que toda el área reaccione a un clic de ratón. */
+	text-decoration: none;
+	background-color: #8090AB;
+	color: #000;
+}
+ul.nav a:hover, ul.nav a:active, ul.nav a:focus { /* esto cambia el color de fondo y del texto tanto para usuarios que naveguen con ratón como para los que lo hagan con teclado */
+	background-color: #CCCCCC;
+	color: #999;
+}
+
+/* ~~ El pie de página ~~ */
+.footer {
+	padding: 10px 0;
+	background-color: #6F7D94;
+	position: relative;/* esto da a IE6 hasLayout para borrar correctamente */
+	clear: both; /* esta propiedad de borrado fuerza a .container a conocer dónde terminan las columnas y a contenerlas */
+}
+
+/* ~~ clases float/clear varias ~~ */
+.fltrt {  /* esta clase puede utilizarse para que un elemento flote en la parte derecha de la página. El elemento flotante debe preceder al elemento junto al que debe aparecer en la página. */
+	float: right;
+	margin-left: 8px;
+}
+.fltlft { /* esta clase puede utilizarse para que un elemento flote en la parte izquierda de la página. El elemento flotante debe preceder al elemento junto al que debe aparecer en la página. */
+	float: left;
+	margin-right: 8px;
+}
+.clearfloat { /* esta clase puede situarse en una <br /> o div vacía como elemento final tras la última div flotante (dentro de #container) si #footer se elimina o se saca fuera de #container */
+	clear:both;
+	height:0;
+	font-size: 1px;
+	line-height: 0px;
+}
+.container .header table tr td div h1 {
+	font-family: Misstral;
+}
+.container .header table tr td div {
+	font-family: Misstral;
+	font-size: 36px;
+}
+.Contenedor {
+width: auto; overflow: hidden;}
+ 
+.Contenedor img {
+width: 100%; position: relative;}
+-->
+</style><!--[if lte IE 7]>
+<style>
+.content { margin-right: -1px; } /* este margen negativo de 1 px puede situarse en cualquiera de las columnas de este diseño con el mismo efecto corrector. */
+ul.nav a { zoom: 1; }  /* la propiedad de zoom da a IE el desencadenante hasLayout que necesita para corregir el espacio en blanco extra existente entre los vínculos */
+</style>
+<![endif]--></head>
+
+<body>
+<div class="container">
+  <div class="Contenedor"><img src="baner.png"></div>
+  <div class="sidebar1">
+    <ul class="nav">
+      <li><a href="Danzas.html">Danzas</a></li>
+      <li><a href="PlatosTipicos.html">Platos Tipicos</a></li>
+      <li><a href="Trasporte.html">Trasporte</a></li>
+      <li><a href="turisticp.html">Turismo</a></li>
+      <li><a href="https://www.google.com/maps/place/Huaraz/@-9.518266,-77.5482637,13z/data=!4m5!3m4!1s0x91a90d0e2fd69969:0x89950cf26668d6be!8m2!3d-9.5261154!4d-77.5287792">Ubicación</a></li>
+    </ul>
+  <!-- end .sidebar1 --></div>
+  <div class="content">
+    <table width="500" height="25" border="0">
+      <tr>
+        <td height="21"><video src="Reportaje al Perú _ Huaraz,tierra de montañas  - Cap 1.mp4" width="640" height="480" controls></td>
+      </tr>
+    </table>
+    <h1>Historia:</h1>
+    <p><img src="Images/images (5).jpg" alt="imagen" width="245" height="139" class="fltrt" />La provincia de Huaraz fue  creada por ley del 25 de julio de 1857, con su capital Huaraz, junto con la  segunda provincia de Provincia de Huaylas, por división de la primera provincia  de este mismo nombre de Huaylas. Poco antes, por Ley del 2 de enero de 1857, se  había creado el Concejo Provincial de Huaraz. Esta primera provincia de Huaraz  comprendía las actuales provincias de Huaraz, Carhuaz, Recuay y Aija.</p>
+    <p>Por Ley del 14 de diciembre de  1934 la primera provincia de Huaraz se dividió en la segunda provincia  homónima, con su capital Huaraz, y en la provincia de Carhuaz, con su capital  la ciudad del mismo nombre. Por Ley del 05 de marzo de 1936 la segunda provincia  de Huaraz se dividió nuevamente, esta vez en la tercera provincia homónima, con  la misma capital, y en la provincia de Aija, con su capital la ciudad del mismo  nombre. Finalmente, por Decreto Ley 11171 tercera provincia de Huaraz se  escindió en la cuarta y actual provincia homónima, con la misma capital, y en  la provincia de Recuay, con su capital la ciudad del mismo nombre.</p>
+<h2>Clima </h2>
+    <p><img src="Images/images (12).jpg" alt="flores" width="282" height="179" class="fltlft" />La temperatura anual oscila entre máxima de 24°C (75°F) y 7°C (44°F), y  el clima en Huaraz tiene dos estaciones bien definidas. Templado y seco de Mayo  a Septiembre, su clima es el llamado &ldquo;Verano Andino&rdquo;, el clima es agradable en  esta época del año, con días de sol brillante y frío en las noches. La estación  de lluvias se presenta entre los meses de Octubre a Abril, el sol brilla por  las mañanas y llueve en las tardes, recibe entre 500 a 1000 m.mdelluviaanual.</p>
+    <p><strong>¿Qué ropa usar?</strong>&nbsp;<br />
+Teniendo en cuenta que el  clima de Huaraz es muy variado durante todo el año, es recomendable llevar ropa  ligera para hacer tours, ya que hace bastante calor al medio día, pero al  inicio de la tarde baja la temperatura y es necesario tener una casaca ó abrigo.  Si la visita es en época de lluvias es necesario llevar casacas, impermeables ó  paraguas.<br />
+<br />
+<strong>Mal del Altura:</strong><br />
+Para prevenir el mal del altura en Huaraz es recomendable contar con pastillas  de Coramina contra el soroche, tomar mate de coca al llegar a la ciudad, no  comer comidas indigestas, evite el exceso de bebidas alcohólicas. Ingerir  bastante líquido.<br />
+    </p>
+    <h3> Hospedajas de la Regiòn:    </h3>
+    <p>Hotel Andino Club hotel, Jr. Pedro Cochachin N° 357<br />
+      Hotel El Patio de Monterrey, Carretera Huaraz - Caraz KM 206<br />
+      Hotel Residencial NG, Psje. Carlos Valenzuela N° 837<br />
+      Hotel El Tumi, Jr. San Martín N° 1121<br />
+      Hotel San Sebastián, Jr. Italia N° 1124<br />
+      Hotel La Joya, Jr. San Martín N° 1187<br />
+      Hostal Hatunwasi, Jr. Daniel Villayzán N° 268<br />
+      Hostal La Aurora, Av. Luzuriaga N° 915<br />
+      Albergue La Casa de Zarela, Jr. Julio Arguedas N° 1263<br />
+    Albergue El Jacal, Jr. José de Sucre N° 1044</p>
+<h4>Restaurantes del la Region:</h4>
+    <p>Bistró de los Andes, Jr. José Sucre Nº 702<br />
+      Pizza Bruno, Av. Luzuriaga Nº 834<br />
+      Trivio, Parque del Periodista Mz. 1 Lt. 35 (1er y 2do piso)<br />
+      Encuentro Restaurant Café, Av. Julián de Morales Nº 650<br />
+      Huaraz Querido, Jr. Simón Bolívar Nº 981<br />
+      Sala de Star, Av. Luzuriaga Nº 926<br />
+      Chifa Oja – Yo, Av. 28 de Julio Nº 744<br />
+      Rinconcito Minero, Jr. Julián de Morales Nº 757<br />
+      Mochica, Urb. Las casuarinas Mz. B Lt. 11<br />
+    Recreo Don Cuy, Av. Centenario N° 2621</p>
+<!-- end .content --></div>
+  <div class="sidebar2">
+    <h4>Información </h4>
+    <p>Esta ciudad es el centro del comercio Regional y eje del movimiento  Turístico, en especial del tipo montañista (Turismo de Aventura). Considerada  como uno de los más importantes destinos Turísticos en el Perú, debido a la  belleza natural de sus paisajes, monumentos arqueológicos (pre - Inca é Inca) y  su variado folklore; es una ciudad privilegiada por concentrar una gran riqueza  natural, cultural y humana.<br />
+      <br />
+    </p>
+    <!-- end .sidebar2 --></div>
+  <div class="footer">
+    <p>&nbsp;</p>
+  <!-- end .footer --></div>
+<!-- end .container --></div>
+</body>
+</html>
